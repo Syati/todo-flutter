@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../routes.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends StatefulWidget {
+  final nav;
+
+  BottomBar(this.nav);
+
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -13,10 +22,10 @@ class BottomBar extends StatelessWidget {
       onTap: (index) {
         switch (index) {
           case 0:
-            Navigator.pushNamed(context, AppPath.root);
+            widget.nav.currentState.pushNamed(AppPath.root);
             break;
           case 1:
-            Navigator.pushNamed(context, AppPath.list_todos);
+            widget.nav.currentState.pushNamed(AppPath.list_todos);
             break;
         }
       },

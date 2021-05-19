@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../widgets/bottom_bar.dart';
 
 class GetPage extends StatelessWidget {
   String id;
@@ -8,8 +7,8 @@ class GetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Todo ${id}")),
       body: Center(child: Text(id.toString())),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }

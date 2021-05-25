@@ -9,10 +9,11 @@ class AppPath {
 }
 
 FluroRouter defineRoutes(FluroRouter router) {
-  router.define(AppPath.root,
-      handler: rootHandler, transitionType: TransitionType.material);
+  router.define(AppPath.root, handler: rootHandler,
+      transitionType: TransitionType.fadeIn
+  );
   router.define(AppPath.list_todos,
-      handler: listTodosHandler, transitionType: TransitionType.material);
+      handler: listTodosHandler, transitionType: TransitionType.fadeIn);
   router.define(AppPath.get_todo,
       handler: getTodoHandler, transitionType: TransitionType.material);
   return router;

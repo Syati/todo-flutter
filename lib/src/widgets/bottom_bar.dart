@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../routes.dart';
 
 class BottomBar extends StatefulWidget {
-  final nav;
+  final GlobalKey<NavigatorState> nav;
 
   BottomBar(this.nav);
 
@@ -22,10 +22,10 @@ class _BottomBarState extends State<BottomBar> {
       onTap: (index) {
         switch (index) {
           case 0:
-            widget.nav.currentState.pushNamed(AppPath.root);
+            widget.nav.currentState!.pushNamedAndRemoveUntil(AppPath.root, (route) => false);
             break;
           case 1:
-            widget.nav.currentState.pushNamed(AppPath.list_todos);
+            widget.nav.currentState!.pushNamedAndRemoveUntil(AppPath.list_todos, (route) => false);
             break;
         }
       },
